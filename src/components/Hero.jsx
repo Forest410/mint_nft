@@ -1,4 +1,10 @@
-import ethlogo from '../assets/ethlogo.png'
+import avatar from '../assets/owner.jpg'
+import github from '../assets/github_icon.png'
+import facebook from '../assets/facebook_icon.png'
+import twitter from '../assets/twitter_icon.png'
+import linkedIn from '../assets/linkedIn_icon.png'
+import medium from '../assets/medium_icon.png'
+
 const Hero = () => {
   return (
     <div
@@ -23,44 +29,36 @@ const Hero = () => {
           >
             Mint Now
           </button>
-        </div>
 
-        <div className="flex flex-col justify-center items-center mx-auto pt-6">
-          <h4 className="text-white text-xl font-bold text-center">
-            Recently Minted
-          </h4>
-        </div>
-
-        <div className="overflow-x-scroll no-scrollbar w-full my-4">
-          <div className="flex flex-row justify-center items-center space-x-3">
-            {Array(10)
-              .fill()
-              .map((item, i) => (
-                <div
-                  key={i}
-                  className="relative flex-shrink-0 shadow-xl shadow-black p-3
-                  bg-white rounded-lg item w-64 h-64 object-contain
-                  bg-[url('https://cdn.pixabay.com/photo/2022/02/18/16/09/ape-7020995_960_720.png')]
-                  bg-no-repeat bg-cover overflow-hidden"
-                >
-                  <div
-                    className="absolute bottom-0 left-0 right-0
-                  flex flex-row justify-between items-center
-                  label-gradient p-2 w-full text-white text-sm"
-                  >
-                    <p>{i + 1}# Purple Bear</p>
-                    <div className="flex justify-center items-center space-x-2">
-                      <img
-                        className="w-5 cursor-pointer"
-                        src={ethlogo}
-                        alt="Adulam Logo"
-                      />
-                      0.15
-                    </div>
-                  </div>
-                </div>
-              ))}
+          <div className="flex flex-row justify-center space-x-2 items-center bg-[#000000ad] rounded-full my-4 pr-3">
+            <img
+              className="w-11 h-11 object-contain rounded-full cursor-pointer"
+              src={avatar}
+              alt="Adulam Logo"
+            />
+            <div className="font-semibold">
+              <p className="text-white text-sm">0xf55...146a</p>
+              <span className="text-[#e32970] text-xs">Daltonic</span>
+            </div>
           </div>
+
+          <ul className="flex flex-row justify-center space-x-2 items-center my-4">
+            <a className="bg-white hover:scale-50 transition-all duration-75 delay-75 rounded-full mx-2" href="#">
+              <img className="w-7 h-7" src={github} alt="Github" />
+            </a>
+            <a className="bg-white hover:scale-50 transition-all duration-75 delay-75 rounded-full mx-2" href="#">
+              <img className="w-7 h-7" src={linkedIn} alt="linkedIn" />
+            </a>
+            <a className="bg-white hover:scale-50 transition-all duration-75 delay-75 rounded-full mx-2" href="#">
+              <img className="w-7 h-7" src={facebook} alt="facebook" />
+            </a>
+            <a className="bg-white hover:scale-50 transition-all duration-75 delay-75 rounded-full mx-2" href="#">
+              <img className="w-7 h-7" src={twitter} alt="twitter" />
+            </a>
+            <a className="bg-white hover:scale-50 transition-all duration-75 delay-75 rounded-full mx-2" href="#">
+              <img className="w-7 h-7" src={medium} alt="medium" />
+            </a>
+          </ul>
         </div>
       </div>
     </div>
