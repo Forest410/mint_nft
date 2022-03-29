@@ -51,6 +51,19 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.label-gradient {
+  background: rgb(19, 24, 53);
+  background: linear-gradient(
+    31deg,
+    rgba(19, 24, 53, 1) 0%,
+    rgba(237, 33, 124, 0) 100%
+  );
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .lds-dual-ring {
   display: inline-block;
 }

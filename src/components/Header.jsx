@@ -14,7 +14,6 @@ const Header = () => {
         justify-between items-center flex-initial"
       >
         <li className="mx-4 cursor-pointer">Explore</li>
-        <li className="mx-4 cursor-pointer">NFT Drop</li>
         <li className="mx-4 cursor-pointer">Features</li>
         <li className="mx-4 cursor-pointer">Community</li>
       </ul>
