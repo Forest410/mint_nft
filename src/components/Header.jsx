@@ -25,6 +25,12 @@ const Header = () => {
       >
         Connect Wallet
       </button>
+
+      <div className="shadow-xl shadow-black flex flex-row 
+        justify-center items-center w-10 h-10 rounded-full
+        bg-white p-3 ml-4">
+        <span className="text-xs font-bold text-black">#566</span>
+      </div>
     </nav>
   )
 }
