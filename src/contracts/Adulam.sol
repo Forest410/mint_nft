@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Adulam is ERC721Enumerable, Ownable {
     using Strings for uint256;
 
-    mapping(string => uint8) existingURIs;
+    mapping(string => uint8) public existingURIs;
     uint256 public cost = 0.01 ether;
     uint256 public maxSupply = 100;
     uint256 public supply;
@@ -43,19 +43,13 @@ contract Adulam is ERC721Enumerable, Ownable {
         baseURI = _baseURI;
     }
 
-    function isMinted(string memory uri) public view returns (bool) {
-        return existingURIs[uri] == 1;
-    }
-
     function payToMint() public payable {
-        string memory URI = concat(Strings.toString(supply + 1));
-
         require(supply <= maxSupply, "Sorry, all NFTs have been minted!");
         require(msg.value > 0 ether, "Ether too low for minting!");
         require(msg.sender != owner(), "This is not permitted!");
-        require(existingURIs[URI] != 1, "This NFT is already minted!");
 
         supply += 1;
+        string memory URI = concat(Strings.toString(supply + 1));
         existingURIs[URI] = 1;
 
         sendMoneyTo(owner(), msg.value);
@@ -79,7 +73,7 @@ contract Adulam is ERC721Enumerable, Ownable {
         return minted;
     }
 
-    function concat(string memory str) public view returns (string memory) {
+    function concat(string memory str) internal view returns (string memory) {
         return string(abi.encodePacked(baseURI, "", str));
     }
 
