@@ -49,8 +49,7 @@ const Hero = () => {
           <p className="text-white text-sm font-medium text-center">
             Gospel Darlington kick-started his journey as a software engineer in
             2016. <br /> Over the years, he has grown full-blown skills in
-            JavaScript stacks such as <br /> React, ReactNative, VueJs, and
-            more.
+            JavaScript stacks such as <br /> React, ReactNative, VueJs, and now blockchain.
           </p>
 
           <ul className="flex flex-row justify-center space-x-2 items-center my-4">
