@@ -4,7 +4,7 @@ const Artworks = () => {
   return (
     <div className="bg-[#131835] py-10">
       <div className="w-4/5 mx-auto">
-        <h4 className="text-gradient uppercase text-2xl">Artwork</h4>
+        <h4 className="text-gradient uppercase text-2xl">Artworks</h4>
 
         <div className="flex flex-wrap justify-start items-center mt-4">
           {Array(10)
@@ -15,7 +15,8 @@ const Artworks = () => {
                 className="relative shadow-xl shadow-black p-3
                   bg-white rounded-lg item w-64 h-64 object-contain
                   bg-[url('https://cdn.pixabay.com/photo/2022/02/18/16/09/ape-7020995_960_720.png')]
-                  bg-no-repeat bg-cover overflow-hidden mr-2 mb-2"
+                  bg-no-repeat bg-cover overflow-hidden mr-2 mb-2 cursor-pointer
+                  transition-all duration-75 delay-100 hover:scale-75"
               >
                 <div
                   className="absolute bottom-0 left-0 right-0
