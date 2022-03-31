@@ -3,6 +3,7 @@ import Artworks from './components/Artworks'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Loading from './components/Loading'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Artworks />
       <Footer />
       <Alert />
+      <Loading />
     </div>
   )
 }

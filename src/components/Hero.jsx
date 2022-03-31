@@ -4,7 +4,7 @@ import facebook from '../assets/facebook_icon.png'
 import twitter from '../assets/twitter_icon.png'
 import linkedIn from '../assets/linkedIn_icon.png'
 import medium from '../assets/medium_icon.png'
-import { setAlert } from '../store'
+import { setAlert, setGlobalState } from '../store'
 
 const Hero = () => {
   return (
