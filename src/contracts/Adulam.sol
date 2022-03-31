@@ -28,7 +28,8 @@ contract Adulam is ERC721Enumerable, Ownable {
         address from;
         address to;
         uint256 cost;
-        string metadataURI;
+        string title;
+        string description;
         uint256 timestamp;
     }
 
@@ -43,7 +44,7 @@ contract Adulam is ERC721Enumerable, Ownable {
         baseURI = _baseURI;
     }
 
-    function payToMint() public payable {
+    function payToMint(string memory title, string memory description) public payable {
         require(supply <= maxSupply, "Sorry, all NFTs have been minted!");
         require(msg.value > 0 ether, "Ether too low for minting!");
         require(msg.sender != owner(), "This is not permitted!");
@@ -60,7 +61,8 @@ contract Adulam is ERC721Enumerable, Ownable {
                 msg.sender,
                 owner(),
                 msg.value,
-                URI,
+                title,
+                description,
                 block.timestamp
             )
         );
@@ -69,8 +71,12 @@ contract Adulam is ERC721Enumerable, Ownable {
         _safeMint(msg.sender, supply);
     }
 
-    function getMintedNFTs() public view returns (SaleStruct[] memory) {
+    function getAllNFTs() public view returns (SaleStruct[] memory) {
         return minted;
+    }
+    
+    function getAnNFTs(uint256 tokenId) public view returns (SaleStruct memory) {
+        return minted[tokenId - 1];
     }
 
     function concat(string memory str) internal view returns (string memory) {
