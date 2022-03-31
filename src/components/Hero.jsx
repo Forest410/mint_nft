@@ -4,6 +4,7 @@ import facebook from '../assets/facebook_icon.png'
 import twitter from '../assets/twitter_icon.png'
 import linkedIn from '../assets/linkedIn_icon.png'
 import medium from '../assets/medium_icon.png'
+import { setAlert } from '../store'
 
 const Hero = () => {
   return (
@@ -26,6 +27,7 @@ const Hero = () => {
             className="shadow-xl shadow-black text-white
             bg-[#e32970] hover:bg-[#bd255f] p-2
             rounded-full cursor-pointer my-4"
+            onClick={() => setAlert('Minting...', 'red')}
           >
             Mint Now
           </button>

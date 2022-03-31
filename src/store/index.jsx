@@ -7,11 +7,11 @@ const { setGlobalState, useGlobalState } = createGlobalState({
   connectedAccount: '',
 })
 
-const setAlert = (msg, color = 'amber') => {
+const setAlert = (msg, color = 'green') => {
   setGlobalState('alert', { show: true, msg, color })
   setTimeout(() => {
     setGlobalState('alert', { show: false, msg: '', color })
-  }, 5000)
+  }, 2000)
 }
 
 export { useGlobalState, setGlobalState, setAlert }

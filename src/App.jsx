@@ -1,3 +1,4 @@
+import Alert from './components/Alert'
 import Artworks from './components/Artworks'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -12,6 +13,7 @@ const App = () => {
       </div>
       <Artworks />
       <Footer />
+      <Alert />
     </div>
   )
 }
