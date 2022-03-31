@@ -18,8 +18,8 @@ const App = () => {
       </div>
       <Artworks />
       <Footer />
-      <Alert />
       <Loading />
+      <Alert />
     </div>
   )
 }

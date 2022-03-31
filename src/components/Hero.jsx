@@ -4,9 +4,41 @@ import facebook from '../assets/facebook_icon.png'
 import twitter from '../assets/twitter_icon.png'
 import linkedIn from '../assets/linkedIn_icon.png'
 import medium from '../assets/medium_icon.png'
-import { setAlert, setGlobalState } from '../store'
+import {
+  setAlert,
+  useGlobalState,
+  setGlobalState,
+  setLoadingMsg,
+} from '../store'
+import { BASE_URI, payForArt } from '../Adulam'
 
 const Hero = () => {
+  const [connectedAccount] = useGlobalState('connectedAccount')
+  const [maxSupply] = useGlobalState('maxSupply')
+  const [nfts] = useGlobalState('nfts')
+
+  const mint = async () => {
+    setGlobalState('loading', { show: true, msg: 'Retrieving IPFS data...' })
+    const nextTokenIndex = Number(nfts.length + 1)
+
+    fetch(`${BASE_URI + nextTokenIndex}.json`)
+      .then((data) => data.json())
+      .then((res) => {
+        setLoadingMsg('Intializing transaction...')
+        payForArt({ ...res, buyer: connectedAccount }).then((result) => {
+          if (result) {
+            setGlobalState('loading', { show: false, msg: '' })
+            setAlert('Minting Successful...', 'green')
+            window.location.reload()
+          }
+        })
+      })
+      .catch((error) => {
+        setGlobalState('loading', { show: false, msg: '' })
+        console.log(error)
+      })
+  }
+
   return (
     <div
       className="bg-[url('https://cdn.pixabay.com/photo/2022/03/01/02/51/galaxy-7040416_960_720.png')]
@@ -27,7 +59,7 @@ const Hero = () => {
             className="shadow-xl shadow-black text-white
             bg-[#e32970] hover:bg-[#bd255f] p-2
             rounded-full cursor-pointer my-4"
-            onClick={() => setAlert('Minting...', 'red')}
+            onClick={mint}
           >
             Mint Now
           </button>
@@ -51,7 +83,8 @@ const Hero = () => {
           <p className="text-white text-sm font-medium text-center">
             Gospel Darlington kick-started his journey as a software engineer in
             2016. <br /> Over the years, he has grown full-blown skills in
-            JavaScript stacks such as <br /> React, ReactNative, VueJs, and now blockchain.
+            JavaScript stacks such as <br /> React, ReactNative, VueJs, and now
+            blockchain.
           </p>
 
           <ul className="flex flex-row justify-center space-x-2 items-center my-4">
@@ -90,9 +123,13 @@ const Hero = () => {
           <div
             className="shadow-xl shadow-black flex flex-row
             justify-center items-center w-10 h-10 rounded-full
-          bg-white p-3 ml-4"
+          bg-white cursor-pointer p-3 ml-4 text-black 
+            hover:bg-[#bd255f] hover:text-white transition-all
+            duration-75 delay-100"
           >
-            <span className="text-xs font-bold text-black">#566</span>
+            <span className="text-xs font-bold">
+              {nfts.length}/{maxSupply}
+            </span>
           </div>
         </div>
       </div>

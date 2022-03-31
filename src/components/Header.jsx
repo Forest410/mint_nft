@@ -1,6 +1,9 @@
 import ethlogo from '../assets/ethlogo.png'
+import { connectWallet } from '../Adulam'
+import { useGlobalState } from '../store'
 
 const Header = () => {
+  const [connectedAccount] = useGlobalState('connectedAccount')
   return (
     <nav className="w-4/5 flex md:justify-center justify-between items-center py-4 mx-auto">
       <div className="flex flex-row justify-start items-center md:flex-[0.5] flex-initial">
@@ -18,13 +21,16 @@ const Header = () => {
         <li className="mx-4 cursor-pointer">Community</li>
       </ul>
 
-      <button
-        className="shadow-xl shadow-black text-white 
+      {connectedAccount ? null : (
+        <button
+          className="shadow-xl shadow-black text-white 
         bg-[#e32970] hover:bg-[#bd255f] md:text-xs p-2
         rounded-full cursor-pointer"
-      >
-        Connect Wallet
-      </button>
+          onClick={connectWallet}
+        >
+          Connect Wallet
+        </button>
+      )}
     </nav>
   )
 }

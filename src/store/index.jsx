@@ -1,18 +1,31 @@
 import { createGlobalState } from 'react-hooks-global-state'
 
-const { setGlobalState, useGlobalState } = createGlobalState({
+const { setGlobalState, useGlobalState, getGlobalState } = createGlobalState({
   alert: { show: false, msg: '', color: '' },
-  loading: false,
+  loading: { show: false, msg: '' },
   contract: null,
-  supply: 100,
+  maxSupply: 100,
   connectedAccount: '',
+  nfts: [],
 })
 
 const setAlert = (msg, color = 'green') => {
   setGlobalState('alert', { show: true, msg, color })
   setTimeout(() => {
     setGlobalState('alert', { show: false, msg: '', color })
-  }, 2000)
+    setGlobalState('loading', false)
+  }, 8000)
 }
 
-export { useGlobalState, setGlobalState, setAlert }
+const setLoadingMsg = (msg) => {
+  const loading = getGlobalState('loading')
+  setGlobalState('loading', { ...loading, msg })
+}
+
+export {
+  useGlobalState,
+  setGlobalState,
+  getGlobalState,
+  setAlert,
+  setLoadingMsg,
+}
