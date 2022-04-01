@@ -1,33 +1,63 @@
+# How To Build A Classic Web3 NFT Minting Dapp with React and Solidity
 
-# Truffle-React Dapp Starter Kit
-Speedily develope your decentralized application with this starter kit for free!
+Read the full tutorial here: [**>> How To Build A Classic Web3 NFT Minting Dapp with React and Solidity**](https://daltonic.github.io)
 
-Follow the steps below to download, install, and run this project.
+This example shows How To Build A Classic Web3 NFT Minting Dapp with React and Solidity:
 
-## Dependencies
-Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
-- NPM: https://nodejs.org
-- Truffle: https://github.com/trufflesuite/truffle
-- Ganache: http://truffleframework.com/ganache/
+![Adulam NFT Project](./screenshots/0.gif)
+<center><figcaption>Adulam NFT Project</figcaption></center>
 
+## Technology
 
-## Step 1. Clone the project
-`git clone https://github.com/Daltonic/truffle-starter-kit.git <PROJECT NAME>`
+This demo uses:
 
-## Step 2. Install dependencies
-```sh
-$ cd <PROJECT NAME>
-$ yarn install # or npm install
-```
-## Step 3. Start Ganache
-Open the Ganache GUI client that you downloaded and installed. This will start your local blockchain instance. See free video tutorial for full explanation.
+- Metamask
+- Truffle
+- Alchamy
+- ReactJs
+- Tailwind CSS
+- Ganache-CLI
+- Solidity
+- Web3js
+- Faucet
 
+## Running the demo
 
-## Step 4. Compile & Deploy Election Smart Contract
-`$ truffle migrate --reset`
-Migrate your smart contract each time your restart ganache.
+To run the demo follow these steps:
 
-## Step 5. Run the Front End Application
-`$ yarn start`
-Visit this URL in your browser: http://localhost:3000
+1. Clone the project with the code below.
+    ```sh
 
+    # Make sure you have the above prerequisites installed already!
+    git clone https://github.com/Daltonic/adulamNFT adulamNFT
+    cd adulamNFT # Navigate to the new folder.
+    yarn install # Installs all the dependencies.
+    ```
+2. Create an Alchemy project, copy and paste your key in the spaces below.
+2. Update the `.env` file with the following details.
+    ```sh
+    ENDPOINT_URL=<PROVIDER_URL>
+    SECRET_KEY=<SECRET_PHRASE>
+    DEPLOYER_KEY=<YOUR_PRIVATE_KEY>
+    ```
+3. Run the app using `yarn start`
+<br/>
+
+If your confuse about the installation, check out this **TUTORIAL** to see how you should run it.
+
+Questions about running the demo? [Open an issue](https://github.com/Daltonic/adulamNFT/issues). We're here to help ✌️
+
+## Useful links
+
+- 🏠 [Website](https://daltonic.github.io/)
+- ⚽ [Metamask](https://metamask.io/)
+- 🚀 [Remix Editor](https://remix.ethereum.org/)
+- 💡 [Truffle](https://trufflesuite.com/)
+- 📈 [Alchamy](https://www.alchemy.com/)
+- 🔥 [ReactJs](https://reactjs.org/)
+- 😊 [Creative Tim](https://www.creative-tim.com/)
+- 🐻 [Solidity](https://soliditylang.org/)
+- 👀 [Web3Js](https://docs.ethers.io/v5/)
+- 🎅 [Faucet](https://faucets.chain.link/rinkeby)
+- 🤖 [Ganache](https://trufflesuite.com/ganache/index.html)
+- ✨ [Live Demo](https://adulam-nft.web.app/)
